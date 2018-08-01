@@ -1,13 +1,22 @@
-<mat-toolbar color="primary">
-  <button routerLink="/about" mat-button>Miniputterne</button>
-  <button routerLink="/system" mat-button>Systemtips</button>
-  <button routerLink="/single" mat-button>Enkeltrækker</button>
+<mat-toolbar color="primary" class="top-bar">
+  <mat-toolbar-row>
+    <nav class="nav-bar">
+      <a routerLink="/about" mat-button>Miniputterne</a>
+      <a routerLink="/system" mat-button class="nav-bar-hide-small">Systemtips</a>
+      <a routerLink="/single" mat-button class="nav-bar-hide-small">Enkeltr&aelig;kker</a>
+
+      <div class="flex-spacer"></div>
+
+      <app-season-picker></app-season-picker>
+    </nav>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="nav-bar-show-small">
+    <nav class="nav-bar-secondary">
+      <a routerLink="/system" mat-button>Systemtips</a>
+      <a routerLink="/single" mat-button>Enkeltr&aelig;kker</a>
+    </nav>
+  </mat-toolbar-row>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
-
-<ul>
-  <li *ngFor="let item of items | async">
-    <pre>{{ item | json }}</pre>
-  </li>
-</ul>

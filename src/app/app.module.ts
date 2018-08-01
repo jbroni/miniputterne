@@ -13,9 +13,11 @@ import { SingleComponent } from './single/single.component';
 import { SystemComponent } from './system/system.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SeasonPickerComponent } from './season-picker/season-picker.component';
+import { MatMenuModule } from '@angular/material';
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, SingleComponent, SystemComponent, PageNotFoundComponent],
+  declarations: [AppComponent, AboutComponent, SingleComponent, SystemComponent, PageNotFoundComponent, SeasonPickerComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebase),
@@ -23,6 +25,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatMenuModule,
     AppRoutingModule
   ],
   providers: [],

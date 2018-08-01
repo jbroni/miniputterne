@@ -1,0 +1,34 @@
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-bar {
+  display: flex;
+  width: 100%;
+}
+
+.nav-bar-secondary {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.nav-bar-show-small {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .nav-bar-show-small {
+    display: flex;
+  }
+
+  .nav-bar-hide-small {
+    display: none;
+  }
+}
