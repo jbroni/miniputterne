@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
-  <button mat-button>Miniputterne</button>
-  <button mat-button>Systemtips</button>
-  <button mat-button>Enkeltrækker</button>
+  <button routerLink="/about" mat-button>Miniputterne</button>
+  <button routerLink="/system" mat-button>Systemtips</button>
+  <button routerLink="/single" mat-button>Enkeltrækker</button>
 </mat-toolbar>
+
+<router-outlet></router-outlet>
 
 <ul>
   <li *ngFor="let item of items | async">
