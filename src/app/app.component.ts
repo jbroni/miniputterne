@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {AngularFirestore} from 'angularfire2/firestore';
-import {Observable} from 'rxjs/index';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/index';
 
 @Component({
   selector: 'app-root',

@@ -7,15 +7,9 @@ import { firebase } from '../environments/firebase';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(firebase),
-    AngularFirestoreModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AngularFireModule.initializeApp(firebase), AngularFirestoreModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
