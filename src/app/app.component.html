@@ -1,3 +1,9 @@
+<mat-toolbar color="primary">
+  <button mat-button>Miniputterne</button>
+  <button mat-button>Systemtips</button>
+  <button mat-button>Enkeltrækker</button>
+</mat-toolbar>
+
 <ul>
   <li *ngFor="let item of items | async">
     <pre>{{ item | json }}</pre>
