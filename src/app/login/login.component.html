@@ -1,0 +1,4 @@
+<button mat-button (click)="login()" *ngIf="!user">Log ind</button>
+<a (click)="logout()" *ngIf="user" class="logout">
+  <img [src]="user.photoURL" title="Log ud" class="user-photo">
+</a>
