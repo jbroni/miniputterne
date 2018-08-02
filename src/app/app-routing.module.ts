@@ -4,11 +4,14 @@ import { SingleComponent } from './single/single.component';
 import { SystemComponent } from './system/system.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgModule } from '@angular/core';
+import { CreateComponent } from './create/create.component';
+import { CreateGuardService } from './create-guard.service';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'single', component: SingleComponent },
   { path: 'system', component: SystemComponent },
+  { path: 'create', component: CreateComponent, canActivate: [CreateGuardService] },
   { path: '', redirectTo: '/about', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

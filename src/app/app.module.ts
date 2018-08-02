@@ -17,6 +17,7 @@ import { SeasonPickerComponent } from './season-picker/season-picker.component';
 import { MatMenuModule } from '@angular/material';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './login/login.component';
     SystemComponent,
     PageNotFoundComponent,
     SeasonPickerComponent,
-    LoginComponent
+    LoginComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

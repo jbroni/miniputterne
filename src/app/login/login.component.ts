@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.fireAuth.user.subscribe(user => {
       this._user = user;
-      console.log(user);
     });
   }
 

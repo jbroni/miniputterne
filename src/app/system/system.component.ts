@@ -53,9 +53,6 @@ export class SystemComponent implements OnInit {
     this.firestore
       .collection<Round>('/rounds', ref => ref.where('season', '==', season.season))
       .valueChanges()
-      .subscribe(rounds => {
-        console.log(rounds);
-        this.rounds = rounds;
-      });
+      .subscribe(rounds => (this.rounds = rounds));
   }
 }
