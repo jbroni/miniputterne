@@ -14,10 +14,11 @@ import { SystemComponent } from './system/system.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SeasonPickerComponent } from './season-picker/season-picker.component';
-import { MatMenuModule } from '@angular/material';
+import { MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule } from '@angular/material';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
 import { CreateComponent } from './create/create.component';
+import { CreateNewCouponComponent } from './create-new-coupon/create-new-coupon.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,10 @@ import { CreateComponent } from './create/create.component';
     PageNotFoundComponent,
     SeasonPickerComponent,
     LoginComponent,
-    CreateComponent
+    CreateComponent,
+    CreateNewCouponComponent
   ],
+  entryComponents: [CreateNewCouponComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebase),
@@ -39,6 +42,10 @@ import { CreateComponent } from './create/create.component';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
     AppRoutingModule
   ],
   providers: [],

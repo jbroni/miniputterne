@@ -1,3 +1,7 @@
+<button mat-icon-button (click)="createNewCoupon()">
+  <mat-icon>add</mat-icon>
+</button>
+
 <ul>
   <li *ngFor="let round of rounds">
     <pre>{{ round | json }}</pre>

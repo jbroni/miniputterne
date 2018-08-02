@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Season, SeasonsService } from '../seasons.service';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { MatDialog } from '@angular/material';
+import { CreateNewCouponComponent } from '../create-new-coupon/create-new-coupon.component';
 
 export interface MatchResult {
   home: string;
@@ -39,7 +41,7 @@ export interface Round {
 export class SystemComponent implements OnInit {
   public rounds: Round[];
 
-  constructor(private firestore: AngularFirestore, private seasonsService: SeasonsService) {}
+  constructor(private firestore: AngularFirestore, private seasonsService: SeasonsService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.seasonsService.getSelectedSeason().subscribe(season => {
@@ -47,6 +49,11 @@ export class SystemComponent implements OnInit {
         this.fetchSeasonData(season);
       }
     });
+  }
+
+  public createNewCoupon(): void {
+    const dialog = this.dialog.open(CreateNewCouponComponent);
+    dialog.afterClosed().subscribe(result => console.log(result));
   }
 
   private fetchSeasonData(season: Season): void {
