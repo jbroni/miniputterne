@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
 import { CreateComponent } from './create/create.component';
 import { CreateNewCouponComponent } from './create-new-coupon/create-new-coupon.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CreateNewCouponComponent } from './create-new-coupon/create-new-coupon.
     SeasonPickerComponent,
     LoginComponent,
     CreateComponent,
-    CreateNewCouponComponent
+    CreateNewCouponComponent,
+    NavBarComponent
   ],
   entryComponents: [CreateNewCouponComponent],
   imports: [

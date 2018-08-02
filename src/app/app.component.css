@@ -1,38 +1,22 @@
-.top-bar {
+.main-app-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.nav-bar {
-  display: flex;
-  width: 100%;
-}
-
-.nav-bar-secondary {
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-evenly;
-}
-
-.flex-spacer {
-  flex-grow: 1;
-}
-
-.nav-bar-show-small {
-  display: none;
+app-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 @media (max-width: 700px) {
-  .nav-bar-show-small {
-    display: flex;
+  .main-app-wrapper {
+    top: 111px;
   }
-
-  .nav-bar-hide-small {
-    display: none;
-  }
-}
-
-app-login {
-  display: flex;
 }
