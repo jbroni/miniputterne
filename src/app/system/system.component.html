@@ -1,3 +1,5 @@
-<p>
-  system works!
-</p>
+<ul>
+  <li *ngFor="let round of rounds">
+    <pre>{{ round | json }}</pre>
+  </li>
+</ul>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Season, SeasonsService } from '../seasons.service';
 
@@ -7,16 +7,21 @@ import { Season, SeasonsService } from '../seasons.service';
   templateUrl: './season-picker.component.html',
   styleUrls: ['./season-picker.component.css']
 })
-export class SeasonPickerComponent {
+export class SeasonPickerComponent implements OnInit {
+  private _selectedSeason: Season | undefined;
+
   constructor(private seasonsService: SeasonsService) {}
+
+  ngOnInit() {
+    this.seasonsService.getSelectedSeason().subscribe(season => (this._selectedSeason = season));
+  }
 
   public get seasons(): Observable<Season[]> {
     return this.seasonsService.getSeasons();
   }
 
   public get selectedSeason(): string {
-    const selectedSeason = this.seasonsService.getSelectedSeason();
-    return selectedSeason ? selectedSeason.season.toString() : '';
+    return this._selectedSeason ? this._selectedSeason.season.toString() : '';
   }
 
   public selectSeason(season: Season) {
