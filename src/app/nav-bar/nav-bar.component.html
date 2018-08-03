@@ -4,7 +4,6 @@
       <a routerLink="/about" mat-button>Miniputterne</a>
       <a routerLink="/system" mat-button class="nav-bar-hide-small">Systemtips</a>
       <a routerLink="/single" mat-button class="nav-bar-hide-small">Enkeltr&aelig;kker</a>
-      <a routerLink="/create" mat-button class="nav-bar-hide-small" *ngIf="hasCreatePermissions">Indtast kupon</a>
 
       <div class="flex-spacer"></div>
 
@@ -17,7 +16,6 @@
     <nav class="nav-bar-secondary">
       <a routerLink="/system" mat-button>Systemtips</a>
       <a routerLink="/single" mat-button>Enkeltr&aelig;kker</a>
-      <a routerLink="/create" mat-button *ngIf="hasCreatePermissions">Indtast kupon</a>
     </nav>
   </mat-toolbar-row>
 </mat-toolbar>

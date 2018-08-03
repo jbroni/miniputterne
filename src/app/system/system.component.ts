@@ -4,6 +4,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { MatDialog } from '@angular/material';
 import { CreateNewCouponComponent } from '../create-new-coupon/create-new-coupon.component';
 import { Subscription } from 'rxjs';
+import { NewCouponService } from '../new-coupon.service';
+import { UserService } from '../user.service';
 
 export interface MatchResult {
   home: string;
@@ -41,10 +43,18 @@ export interface Round {
 })
 export class SystemComponent implements OnInit, OnDestroy {
   public rounds: Round[];
+  public canCreateNewCoupon = false;
   private selectedSeasonSubscription: Subscription;
   private seasonDataSubscription: Subscription | undefined;
+  private isUserAdminSubscription: Subscription;
 
-  constructor(private firestore: AngularFirestore, private seasonsService: SeasonsService, private dialog: MatDialog) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private seasonsService: SeasonsService,
+    private dialog: MatDialog,
+    private newCouponService: NewCouponService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.selectedSeasonSubscription = this.seasonsService.getSelectedSeason().subscribe(season => {
@@ -52,10 +62,15 @@ export class SystemComponent implements OnInit, OnDestroy {
         this.fetchSeasonData(season);
       }
     });
+
+    this.isUserAdminSubscription = this.userService
+      .isUserAdmin()
+      .subscribe(isAdmin => (this.canCreateNewCoupon = isAdmin));
   }
 
   ngOnDestroy() {
     this.selectedSeasonSubscription.unsubscribe();
+    this.isUserAdminSubscription.unsubscribe();
     if (this.seasonDataSubscription) {
       this.seasonDataSubscription.unsubscribe();
     }
@@ -63,9 +78,11 @@ export class SystemComponent implements OnInit, OnDestroy {
 
   public createNewCoupon(): void {
     const dialog = this.dialog.open(CreateNewCouponComponent);
-    const dialogClosedSubscription = dialog.afterClosed().subscribe(result => {
+    const dialogClosedSubscription = dialog.afterClosed().subscribe(week => {
       dialogClosedSubscription.unsubscribe();
-      console.log(result);
+      if (week) {
+        this.newCouponService.createNewCoupon(week);
+      }
     });
   }
 
