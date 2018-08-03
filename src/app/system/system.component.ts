@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Season, SeasonsService } from '../seasons.service';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { MatDialog } from '@angular/material';
-import { CreateNewCouponComponent } from '../create-new-coupon/create-new-coupon.component';
+import { CreateNewCouponDialogComponent } from '../create-new-coupon-dialog/create-new-coupon-dialog.component';
 import { Subscription } from 'rxjs';
 import { NewCouponService } from '../new-coupon.service';
 import { UserService } from '../user.service';
@@ -77,7 +77,7 @@ export class SystemComponent implements OnInit, OnDestroy {
   }
 
   public createNewCoupon(): void {
-    const dialog = this.dialog.open(CreateNewCouponComponent);
+    const dialog = this.dialog.open(CreateNewCouponDialogComponent);
     const dialogClosedSubscription = dialog.afterClosed().subscribe(week => {
       dialogClosedSubscription.unsubscribe();
       if (week) {

@@ -17,8 +17,8 @@ import { SeasonPickerComponent } from './season-picker/season-picker.component';
 import { MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule } from '@angular/material';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
-import { CreateComponent } from './create/create.component';
-import { CreateNewCouponComponent } from './create-new-coupon/create-new-coupon.component';
+import { CreateCouponComponent } from './create-coupon/create-coupon.component';
+import { CreateNewCouponDialogComponent } from './create-new-coupon-dialog/create-new-coupon-dialog.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -31,11 +31,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     SeasonPickerComponent,
     LoginComponent,
-    CreateComponent,
-    CreateNewCouponComponent,
+    CreateCouponComponent,
+    CreateNewCouponDialogComponent,
     NavBarComponent
   ],
-  entryComponents: [CreateNewCouponComponent],
+  entryComponents: [CreateNewCouponDialogComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebase),

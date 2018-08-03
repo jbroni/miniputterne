@@ -10,15 +10,15 @@ class NewCouponErrorStateMatcher implements ErrorStateMatcher {
 
 @Component({
   selector: 'app-create-new-coupon',
-  templateUrl: './create-new-coupon.component.html',
-  styleUrls: ['./create-new-coupon.component.css']
+  templateUrl: './create-new-coupon-dialog.component.html',
+  styleUrls: ['./create-new-coupon-dialog.component.css']
 })
-export class CreateNewCouponComponent implements OnInit, OnDestroy {
+export class CreateNewCouponDialogComponent implements OnInit, OnDestroy {
   public weekNumber: FormControl;
   public errorStateMatcher: NewCouponErrorStateMatcher;
   private keyPressEventHandler: (event: KeyboardEvent) => void;
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialogRef<CreateNewCouponComponent>) {}
+  constructor(private formBuilder: FormBuilder, private dialog: MatDialogRef<CreateNewCouponDialogComponent>) {}
 
   ngOnInit() {
     this.weekNumber = new FormControl('', [Validators.required, Validators.min(1), Validators.max(53)]);
