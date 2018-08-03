@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateComponent } from './create/create.component';
 import { CreateNewCouponComponent } from './create-new-coupon/create-new-coupon.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
