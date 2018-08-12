@@ -23,13 +23,16 @@ interface Coupon {
   matches: Match[];
 }
 
+const defaultColumns = ['matchNo', 'home', 'away', 'homeBet', 'drawBet', 'awayBet'];
+const defaultAndUColumns = ['matchNo', 'home', 'away', 'homeBet', 'drawBet', 'awayBet', 'u'];
+
 @Component({
   selector: 'app-create',
   templateUrl: './create-coupon.component.html',
   styleUrls: ['./create-coupon.component.css']
 })
 export class CreateCouponComponent implements OnInit {
-  public displayedColumns: string[] = ['matchNo', 'home', 'away', 'homeBet', 'drawBet', 'awayBet', 'u'];
+  public displayedColumns: string[] = defaultColumns;
   public coupon: Coupon;
 
   constructor(private newCouponService: NewCouponService, private router: Router) {}
@@ -45,6 +48,10 @@ export class CreateCouponComponent implements OnInit {
 
   public get week(): number {
     return this.newCouponService.newCouponWeek;
+  }
+
+  public updateDisplayedColumns(): void {
+    this.displayedColumns = _.startsWith(this.coupon.system.toUpperCase(), 'U') ? defaultAndUColumns : defaultColumns;
   }
 
   private generateCoupon(): Coupon {

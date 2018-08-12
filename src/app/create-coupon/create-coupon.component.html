@@ -1,8 +1,11 @@
-<h1>{{week}}</h1>
-
+<h1>{{coupon.week}}</h1>
 
 <mat-form-field>
-  <input type="text" matInput placeholder="System">
+  <input type="text"
+         matInput
+         placeholder="System"
+         [(ngModel)]="coupon.system"
+         (input)="updateDisplayedColumns()">
 </mat-form-field>
 
 <table mat-table [dataSource]="coupon.matches" class="mat-elevation-z8">
@@ -47,8 +50,8 @@
   </ng-container>
 
   <ng-container matColumnDef="u">
-    <th mat-header-cell *matHeaderCellDef> U-tegn </th>
-    <td mat-cell class="u" *matCellDef="let match">
+    <th mat-header-cell class="u-header-cell" *matHeaderCellDef> U-tegn </th>
+    <td mat-cell class="u-cell" *matCellDef="let match">
       <mat-checkbox [(ngModel)]="match.u.home" labelPosition="before"></mat-checkbox>
       <mat-checkbox [(ngModel)]="match.u.draw" labelPosition="before"></mat-checkbox>
       <mat-checkbox [(ngModel)]="match.u.away" labelPosition="before"></mat-checkbox>
