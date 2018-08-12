@@ -1,1 +1,62 @@
 <h1>{{week}}</h1>
+
+
+<mat-form-field>
+  <input type="text" matInput placeholder="System">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="matchNo">
+    <th mat-header-cell *matHeaderCellDef> Nr. </th>
+    <td mat-cell *matCellDef="let match"> {{match.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="home">
+    <th mat-header-cell *matHeaderCellDef> Hjemmehold </th>
+    <td mat-cell *matCellDef="let match">
+      <input type="text" matInput [(ngModel)]="match.home">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="away">
+    <th mat-header-cell *matHeaderCellDef> Udehold </th>
+    <td mat-cell *matCellDef="let match">
+      <input type="text" matInput [(ngModel)]="match.away">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="homeBet">
+    <th mat-header-cell *matHeaderCellDef>1</th>
+    <td mat-cell *matCellDef="let match">
+      <mat-checkbox [(ngModel)]="match.bets.home"></mat-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="drawBet">
+    <th mat-header-cell *matHeaderCellDef>X</th>
+    <td mat-cell *matCellDef="let match">
+      <mat-checkbox [(ngModel)]="match.bets.draw"></mat-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="awayBet">
+    <th mat-header-cell *matHeaderCellDef>2</th>
+    <td mat-cell *matCellDef="let match">
+      <mat-checkbox [(ngModel)]="match.bets.away"></mat-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="u">
+    <th mat-header-cell *matHeaderCellDef> U-tegn </th>
+    <td mat-cell class="u" *matCellDef="let match">
+      <mat-checkbox [(ngModel)]="match.u.home" labelPosition="before"></mat-checkbox>
+      <mat-checkbox [(ngModel)]="match.u.draw" labelPosition="before"></mat-checkbox>
+      <mat-checkbox [(ngModel)]="match.u.away" labelPosition="before"></mat-checkbox>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+

@@ -1,0 +1,24 @@
+td.mat-cell {
+  border-right: 1px solid rgba(0,0,0,.12);
+  text-align: center;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+td.mat-cell.u {
+  min-width: 85px;
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
+
+td.mat-cell:first-child, th.mat-header-cell:first-child {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+td.mat-cell:last-child, th.mat-header-cell:last-child {
+  padding-right: 8px;
+  padding-left: 0;
+}

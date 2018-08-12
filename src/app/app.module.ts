@@ -14,13 +14,21 @@ import { SystemComponent } from './system/system.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SeasonPickerComponent } from './season-picker/season-picker.component';
-import { MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule } from '@angular/material';
+import {
+  MatCheckboxModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatTableModule
+} from '@angular/material';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
 import { CreateCouponComponent } from './create-coupon/create-coupon.component';
 import { CreateNewCouponDialogComponent } from './create-new-coupon-dialog/create-new-coupon-dialog.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,6 +57,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
+    MatCheckboxModule,
+    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
