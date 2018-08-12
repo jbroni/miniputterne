@@ -1,51 +1,27 @@
+import * as _ from 'lodash';
+
 import { Component, OnInit } from '@angular/core';
 import { NewCouponService } from '../new-coupon.service';
 import { Router } from '@angular/router';
 
-const couponData = [
-  {
-    id: 0,
-    home: 'Liverpool',
-    away: 'West Ham',
-    bets: { home: false, draw: false, away: false },
-    u: { home: false, draw: false, away: false }
-  },
-  {
-    id: 1,
-    home: 'Liverpool',
-    away: 'West Ham',
-    bets: { home: false, draw: false, away: false },
-    u: { home: false, draw: false, away: false }
-  },
-  {
-    id: 2,
-    home: 'Liverpool',
-    away: 'West Ham',
-    bets: { home: false, draw: false, away: false },
-    u: { home: false, draw: false, away: false }
-  },
-  {
-    id: 3,
-    home: 'Liverpool',
-    away: 'West Ham',
-    bets: { home: false, draw: false, away: false },
-    u: { home: false, draw: false, away: false }
-  },
-  {
-    id: 4,
-    home: 'Liverpool',
-    away: 'West Ham',
-    bets: { home: false, draw: false, away: false },
-    u: { home: false, draw: false, away: false }
-  },
-  {
-    id: 5,
-    home: 'Liverpool',
-    away: 'West Ham',
-    bets: { home: false, draw: false, away: false },
-    u: { home: false, draw: false, away: false }
-  }
-];
+interface MatchBet {
+  home: boolean;
+  draw: boolean;
+  away: boolean;
+}
+
+interface Match {
+  home: string;
+  away: string;
+  bets: MatchBet;
+  u: MatchBet;
+}
+
+interface Coupon {
+  week: number;
+  system: string;
+  matches: Match[];
+}
 
 @Component({
   selector: 'app-create',
@@ -54,7 +30,7 @@ const couponData = [
 })
 export class CreateCouponComponent implements OnInit {
   public displayedColumns: string[] = ['matchNo', 'home', 'away', 'homeBet', 'drawBet', 'awayBet', 'u'];
-  public dataSource = couponData;
+  public coupon: Coupon;
 
   constructor(private newCouponService: NewCouponService, private router: Router) {}
 
@@ -62,10 +38,29 @@ export class CreateCouponComponent implements OnInit {
     if (!this.week) {
       // Page was reloaded while on the create page and the week was lost.
       this.router.navigate(['/system']);
+    } else {
+      this.coupon = this.generateCoupon();
     }
   }
 
   public get week(): number {
     return this.newCouponService.newCouponWeek;
+  }
+
+  private generateCoupon(): Coupon {
+    return {
+      week: this.week,
+      system: '',
+      matches: _.times(13, () => this.generateMatch())
+    };
+  }
+
+  private generateMatch(): Match {
+    return {
+      home: '',
+      away: '',
+      bets: { home: false, draw: false, away: false },
+      u: { home: false, draw: false, away: false }
+    };
   }
 }
